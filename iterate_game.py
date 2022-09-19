@@ -1,3 +1,4 @@
+from multiprocessing import Event
 import sys
 import random
 
@@ -109,11 +110,45 @@ def school_select(arg):
         return schools[random.randrange(22,31)]
     if arg == "es":
         return schools[random.randrange(3, 12)]
+    
+class Events():
+    def __init__(self, name, loses, gains, desc):
+        self.data = {"name" : name,
+                     "reqs" : loses,
+                     "unlocks" : gains,
+                     "pref" : desc}
+    
+    def __repr__(self):
+        s = ""
+        for k,v in self.data.items():
+            if isinstance(v, tuple):
+                v = v[0] + " and " + v[1]
+            s += (k + " : " + v + "\n")
+        return s 
         
+def event_select():
+    events = {
+        2: Events("Car Crash", "-5 wealth, -10 physique", "None", "None"),
+        3: Events("Robotics Competition", "None","10 Intellect, 10 Fame", "Needs 2 students with robotics club experience card. Compare Intellect stat within joined players, and players may add additional points to their intellect temporarily with connections and wealth. These points expire after use."),
+        4: Events("Failed in Class", "-10 intellect", "None", "Cannot progress to next level of education for 1 extra turn."),
+        5: Events("Soccer Competition", "None", "10 Physique, 5 Fame", "If Physique is > 30, or intellect + physique > 45 then gian points."),
+        6: Events("First place in class", "None", "5 Fame", "You placed first place in an exam in class."),
+        7: Events("Drugs", "-5 Fame, -10 Physique, -5 intellect", "2 connection", "You started to do drugs."),
+        8: Events("Alcohol Poisoning", "-10 Physique", "None", "You got alcohol poisoning from a party."),
+        9: Events("Party", "None", "5 Connection, 2 Fame", ""),
+        10: Events("Competition", "None", "5 Stats of first stat listed in activity.", "If you are the only person in the group to hold an activity, then add 5 points to the first stat the activity lists. If else, the highest person with the first stat takes 5 points."),
+        11: Events("Musical", "None", "5 Fame, 2 connection", "You performed in a musical. Take the stats only if you are a part of drama club, theater tech, or anything related to music"),
+        12: Events("Epidemic", "-5 Physique", "None",""),
+        13: Events("Prom King/Queen", "None", "10 Fame , 10 connection", "Compare fame points with the players. The player with the highest fame points wins prom king/queen."),
+        14: Events("Scandal","-10 Fame, -5 Connection", "None", "There was a scandal involving you. ")
+        }
+    return events[random.randrange(2, 15)]
 
 if __name__ == "__main__":
     if sys.argv[1] == "school":
         card = school_select(sys.argv[2])
     elif sys.argv[1] == "property":
         card = property_select()
+    elif sys.argv[1] == "event":
+        card = event_select()
     print(card)
