@@ -219,4 +219,6 @@ if __name__ == "__main__":
         card = property_select()
     elif sys.argv[1] == "event":
         card = event_select()
+    elif sys.argv[1] == "exp":
+        card = experience_select(sys.argv[2])
     print(card)
