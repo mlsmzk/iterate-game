@@ -22,3 +22,12 @@ This example asks for the draw of a middle school card.
 
 ### School Cards
 School cards have 4 levels: "es", "ms", "hs", and "c". See the example above for usage.
+
+Similarly, an experience would be
+`python3 exp [lvl]`,
+
+an event would be
+`python3 event`
+
+and a property would be
+`python3 property`.
