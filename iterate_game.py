@@ -20,6 +20,74 @@ class Experience():
             s += (k + " : " + v + "\n")
         return s
 
+def experience_select(lvl):
+    experiences = {
+        3 : Experience("Arts and Crafts", "+3 intellect", "None"),
+        4 : Experience("Elementary Instruments", "+5 intellect", "None"),
+        5 : Experience("Band", "+3 connections", "None"),
+        6 : Experience("Cooking Class", "+3 connections", "None"),
+        7 : Experience("Story Time", "+2 intellect", "None"),
+        8 : Experience("Reading Class", "+5 intellect", "None"),
+        9 : Experience("Math Extended Class", "+5 intellect", "None"),
+        10 : Experience("Afterschool Choir", "+3 connections", "None"),
+        11 : Experience("Afterschool Study Group", "+3 connections", "None"),
+        
+        14 : Experience("Archery Club", "+6 physique", "None"),
+        15 : Experience("Chess Club", "+7 intellect", "None"),
+        16 : Experience("Soccer", "+7 physique", "None"),
+        17 : Experience("Theatre Tech", "+5 connections", "None"),
+        18 : Experience("Drama Club", "+5 connections", "None"),
+        19 : Experience("Cross Country", "+7 physique", "None"),
+        20 : Experience("Student Council", "+5 connections, +5 leadership, +2 fame", "None"),
+        21 : Experience("Journalism", "+6 connections", "None"),
+        22 : Experience("Jazz Band", "+6 connections", "None"),
+        23 : Experience("Rock Band", "+6 connections", "None"),
+
+        26 : Experience("Robotics Club", "+10 intellect, +5 connections", "None"),
+        27 : Experience("MUN", "+10 intellect, +7 connections", "None"),
+        28 : Experience("Mu Alpha Theta", "+10 intellect", "None"),
+        29 : Experience("Student Council", "+10 connections, +5 leadership, +2 fame", "None"),
+        30 : Experience("Track and Field", "+10 physique", "None"),
+        31 : Experience("Football", "+10 physique", "None"),
+        32 : Experience("Cheerleading", "+10 physique", "None"),
+        33 : Experience("Yearbook", "+5 connections", "None"),
+        34 : Experience("Orchestra", "+10 connections", "None"),
+        35 : Experience("Swimming", "+10 physique", "None"),
+
+        38 : Experience("Acapella", "+7 connections", "None"),
+        39 : Experience("Ultimate Frisbee", "+12 physique", "None"),
+        40 : Experience("Formula", "+12 intellect, +10 connections", "None"),
+        41 : Experience("Campus Newspaper", "+7 connections", "None"),
+        42 : Experience("Service Club", "+15 connections", "None"),
+        43 : Experience("Photography Club", "+7 connections", "None"),
+        44 : Experience("Choir", "+7 connections", "None"),
+        45 : Experience("Dance", "+10 physique, +5 connections", "None"),
+        46 : Experience("Hockey", "+10 physique, +5 connections", "None"),
+        47 : Experience("Habitat for Humanity", "+12 connections", "None"),
+
+        50 : Experience("Student Government", "+15 connections, +10 leadership, +5 fame", "None"),
+        51 : Experience("Equestrian Club", "+15 physique, +9 connections", "None"),
+        52 : Experience("Aerospace Engineering", "+15 intellect", "None"),
+        53 : Experience("Hackathon team", "+13 intellect, +6 connections", "None"),
+        54 : Experience("ROTC", "+15 physique, +5 connections", "None"),
+
+        57 : Experience("D1 Sports", "+20 physique, +15 connections, +10 fame, +8 wealth", "None"),
+        58 : Experience("Secret Society", "+20 connections, +15 fame, +8 wealth", "None"),
+        59 : Experience("Honor Society", "+15 intellect, +15 connections, +5 fame", "None")
+    }
+    if int(lvl) == 1:
+        return experiences[random.randrange(3, 12)]
+    elif int(lvl) == 2:
+        return experiences[random.randrange(14,24)]
+    elif int(lvl) == 3:
+        return experiences[random.randrange(26, 36)]
+    elif int(lvl) == 4:
+        return experiences[random.randrange(38, 48)]
+    elif int(lvl) == 5:
+        return experiences[random.randrange(50,55)]
+    else:
+        return experiences[random.randrange(57, 60)]
+
 class Property():
     def __init__(self, name, desc, gain, loss):
         self.data = {"name" : name,
@@ -99,7 +167,7 @@ def school_select(arg):
         65 : School("UCLA", "intellect > 35, physique > 10, wealth > 5", "lvl5", "None"),
         66 : School("Stanford", "intellect > 50, wealth > 10, connections > 10, or fame > 12", "lvl5", "fame"),    
         67 : School("UC Riverside", "intellect > 20, total > 40", "lvl5", "None"),
-        68 : School("University of Illinois Urbana-Champaign", "intellect > 20, total > 40", "lvl5", "None")
+        68 : School("University of Illinois Urbana-Champaign", "intellect > 20, total > 40", "lvl5", "None")    
     }
     if arg == "c":
         return schools[random.randrange(62,69)]
